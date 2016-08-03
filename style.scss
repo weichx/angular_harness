@@ -1,0 +1,177 @@
+@mixin rounded($radius: 3px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($sides: all, $time: .3s, $easing: linear) {
+  -webkit-transition: $sides $time $easing;
+  -moz-transition: $sides $time $easing;
+  -o-transition: $sides $time $easing;
+  transition: $sides $time $easing;
+}
+
+@mixin remove-child-text-margins {
+  p, h1, h2, h3, h4, h5, h6, button, label {
+    margin: 0;
+  }
+}
+
+$black: #3e3e3e;
+
+$grey: #9e9e9e;
+$light-grey: #dcdcdc;
+$lighter-grey: lighten( $light-grey, 8% );
+$dark-grey: #404040;
+
+// END MIXINS, utils, AND VARIABLES
+
+body {
+
+
+  #harness-page-contents, #harness-control-panel, #harness-control-panel * {
+    box-sizing: border-box;
+  }
+
+  #harness-page-contents {
+    width: 100%;
+  }
+
+  &.harness-control-panel-in-view {
+
+    #harness-control-panel {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 400px;
+      max-width: 100%;
+    }
+
+    @media ( min-width: 1200px ) {
+
+      #harness-page-contents {
+        float: left;
+        width: 70%;
+      }
+
+      #harness-control-panel {
+        width: 30%;
+        display: block;
+        float: left;
+      }
+    }
+  }
+}
+
+#harness-control-panel {
+  display: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-left: 2px solid #373737;
+
+  width: 0;
+  height: 100%;
+
+  padding: 20px;
+  background: #ffffff;
+  z-index: 10000;
+
+  button {
+    font-size: 15px;
+    &:disabled {
+      color: #dcdcdc;
+    }
+  }
+
+  * {
+    color: $black;
+    font-family: sans-serif;
+  }
+
+  .harness-select-container {
+    select {
+      min-width: 50%;
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+    h4 {
+      margin-bottom: 2px;
+      margin-top: 0;
+    }
+  }
+
+  .harness-card-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &.accordion {
+
+      .harness-card-header {
+
+        &:hover {
+          cursor: pointer;
+
+          * {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .harness-card {
+    @include remove-child-text-margins();
+    border: 1px solid #e1e1e8;
+    margin-bottom: -1px;
+
+    label {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    &:first-child {
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      margin-bottom: 0;
+    }
+
+    .harness-card-header {
+      position: relative;
+      background: #e1e1e8;
+      padding: 10px;
+
+      h5 {
+        font-weight: 400;
+      }
+    }
+
+    .harness-card-contents {
+      padding: 10px;
+
+      &.harness-input-container {
+        margin-bottom: 0.25em;
+      }
+    }
+
+    &.closed {
+
+      .harness-card-contents {
+        @include transition( height );
+        height: 0;
+        display: none;
+      }
+
+    }
+  }
+
+  h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

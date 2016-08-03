@@ -1,0 +1,33 @@
+{
+  "name": "pp-harness",
+  "version": "2.0.14",
+  "description": "Harness yo apps",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "main": "clients/dev_client.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PillPack/Harness"
+  },
+  "author": "Matt Weichselbaum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PillPack/Harness/issues"
+  },
+  "homepage": "https://github.com/PillPack/Harness",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-haml": "^0.1.5",
+    "gulp-replace": "^0.5.3"
+  },
+  "devDependencies": {
+    "gulp-cssmin": "^0.1.7",
+    "gulp-html-minify": "0.0.7",
+    "gulp-rename": "^1.2.2",
+    "gulp-tsc": "^0.10.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.2.4"
+  }
+}

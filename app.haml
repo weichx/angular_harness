@@ -1,0 +1,68 @@
+%html
+  %head
+    %link( href="style.css" rel="stylesheet" )
+    %script( src="dist/module.js" )
+    %script( src="dist/entity.js" )
+    %script( src="dist/async_modules.js")
+    %script( src="dist/mock.js" )
+    %script( src="dist/variant.js" )
+    %script( src="dist/harness.js" )
+    %script( src="dist/angular_harness.js")
+    %script( src="dist/dev_client.js" )
+    %script( src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" )
+
+    %script( src="angular_test_app/test_app_harness.js" )
+    %script( src="angular_test_app/index.js" )
+
+  %body.harness-control-panel-in-view
+    #harness-page-contents
+
+    #harness-control-panel
+      .harness-select-container
+        %h4 Select a group
+        %select#harness-group-select
+        %br
+
+        %h4 Select a harness
+        %select#harness-instance-select
+
+        %br
+
+        %h4 Select a variant
+        %select#harness-variant-select
+
+        %br
+        %br
+        %button#harness-apply-changes(disabled) Apply Changes
+        %button#harness-reset-button Reset to defaults
+        %button#harness-clear-button Clear
+
+      -#.harness-card-group
+      -#  .harness-card#harness-applied-mocks
+      -#    .harness-card-header
+      -#      %h5 Applied Mocks
+      -#
+      -#    .harness-card-contents
+      -#      %h5 UserDataSource
+      -#      %label
+      -#        %input( type="radio" )
+      -#        Some Mock name 1
+      -#
+      -#      %br/
+      -#      %br/
+      -#
+      -#      %h5 MedicationDataSource
+      -#      %div
+      -#        %label
+      -#          %input( type="radio" )
+      -#          Some Mock name 1
+      -#      %div
+      -#        %label
+      -#          %input( type="radio" )
+      -#          Some Mock name 2
+      -#      %div
+      -#        %label
+      -#          %input( type="radio" )
+      -#          Some Mock name 3
+
+      .harness-card-group.accordion#harness-mock-accordion
